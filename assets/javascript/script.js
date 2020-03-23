@@ -11,7 +11,7 @@ function writePassword() {
   var specChar = ["!", "#", "$", "%", "&","(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "\\", "^", "_", "`", "{", "}", "|", "~", "\"", "\'"];
 
   // prompt: length of the password? 8 characters to 128 characters
-  var pwLength = prompt("Please type in the LENGTH of your desired password, between 8 to 128. Please type NUMBERS ONLY");
+  var pwLength = prompt("Please type in the LENGTH of your desired password, between 8 to 128 characters. Please type NUMBERS ONLY.");
   console.log("user requested " + pwLength + " as the password length.");
   var pwLengthFinal = parseInt(pwLength);
   
@@ -60,22 +60,20 @@ function writePassword() {
 
   for (var i = 0; i < pwLengthFinal; i++) {
     
-    var randomlowerCase = lowerCase[Math.round(Math.random() * lowerCase.length)];  
-    console.log(randomlowerCase);
-    var randomupperCase = upperCase[Math.round(Math.random() * upperCase.length)];  
-    console.log(randomupperCase);
-    var randomNum = numbers[Math.round(Math.random() * numbers.length)];  
-    console.log(randomNum);
-    var randomSpecChar = specChar[Math.round(Math.random() * specChar.length)];  
-    console.log(randomSpecChar);
+    var randomLowerCase = lowerCase[Math.floor(Math.random() * lowerCase.length)];  
+    var randomUpperCase = upperCase[Math.floor(Math.random() * upperCase.length)];  
+    var randomNum = numbers[Math.floor(Math.random() * numbers.length)];  
+    var randomSpecChar = specChar[Math.floor(Math.random() * specChar.length)];  
 
-
+    console.log("randomNum picked are " + randomNum);
+    console.log("pwCriteria = " + pwCriteria[j]);
+    
     if (pwCriteria[j] === "lower") {
-      roughDraftPW.push(randomlowerCase);
+      roughDraftPW.push(randomLowerCase);
     }
 
     else if (pwCriteria[j] === "upper") {
-      roughDraftPW.push(randomupperCase);
+      roughDraftPW.push(randomUpperCase);
     }
     
     else if (pwCriteria[j] === "number") {
@@ -94,11 +92,14 @@ function writePassword() {
     
   }
 
+  console.log("characters that will go into the rough draft password are " + roughDraftPW);
+
   // scrambles the elements in the array roughDraftPW
   roughDraftPW.sort(function(a, b){return 0.5 - Math.random()});
 
   // This will join the individual password alphanumeric characters into one solid password
   var finalPW = roughDraftPW.join("");
+  console.log("post-scrambled rough draft password is " + finalPW);
 
   // pushes the finalPW/passwordText into the textarea id "passwordDisplay" in the HTML
   // This will put the finalPW into the textarea id "password"
