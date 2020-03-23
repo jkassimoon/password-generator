@@ -19,7 +19,7 @@ generateBtn.addEventListener("click", writePassword);
 // pseudocoding 
 // the user clicks the button which launches prompt windows
 // prompt: length of the password? 8 characters to 128 characters
-// prompt/confirm: lowercase? uppercase? numeric? special characters?
+// confirm: lowercase? uppercase? numeric? special characters?
 // look up modals to see if I can do "yes" or "no" buttons instead of confirm/cancel button
 // important: at least one criteria must be selected (not sure how to make sure of this yet)
 // generates password
