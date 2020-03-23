@@ -3,6 +3,7 @@
 ![Screenshot of finished page](/assets/images/pwgen-finished.png "Screenshot of finished page")
 
 https://github.com/jkassimoon/password-generator
+
 https://jkassimoon.github.io/password-generator
 
 * ## Project Description
